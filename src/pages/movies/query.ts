@@ -1,6 +1,6 @@
-export const mutationLogin = async () => {
+export const fetchMovieDetails = async (movieid: string) => {
   const res = await fetch(
-    "https://api.themoviedb.org/3/authentication/guest_session/new",
+    `https://api.themoviedb.org/3/movie/${movieid}?language=en-US`,
     {
       headers: {
         accept: "application/json",
