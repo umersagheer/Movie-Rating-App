@@ -59,6 +59,16 @@ const MoviesPage = () => {
                     <List.Header>IMDB_id</List.Header>
                     {data.imdb_id}
                   </List.Item>
+                  <List.Item>
+                    <List.Header>Production companies</List.Header>
+                    {data.prouction_companies?.map((genre: any) => (
+                      <List.Item key={genre.id}>{genre.name}</List.Item>
+                    ))}
+                  </List.Item>
+                  <List.Item>
+                    <List.Header>Popularity</List.Header>
+                    {data.popularity}
+                  </List.Item>
                 </List>
               </Grid.Column>
             </Grid.Row>
