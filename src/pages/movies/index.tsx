@@ -10,8 +10,6 @@ const MoviesPage = () => {
     queryFn: () => fetchMovieDetails(id as string),
   });
 
-  console.log(data);
-
   if (!id) {
     return <h1>No id</h1>;
   } else if (isLoading) {
@@ -61,13 +59,17 @@ const MoviesPage = () => {
                   </List.Item>
                   <List.Item>
                     <List.Header>Production companies</List.Header>
-                    {data.prouction_companies?.map((genre: any) => (
-                      <List.Item key={genre.id}>{genre.name}</List.Item>
-                    ))}
+                    {data.production_companies
+                      .map((company: any) => company.name)
+                      .join(", ")}
                   </List.Item>
                   <List.Item>
                     <List.Header>Popularity</List.Header>
                     {data.popularity}
+                  </List.Item>
+                  <List.Item>
+                    <List.Header>Revenue</List.Header>
+                    {data.revenue}
                   </List.Item>
                 </List>
               </Grid.Column>
